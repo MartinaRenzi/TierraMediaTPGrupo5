@@ -14,5 +14,11 @@ public abstract class Producto {
 		this.duracion = duracion;
 		this.tipo = tipo;
 	}
+	
+	@Override
+	public String toString() {
 
+		return "[ Nombre: " + this.nombre + ", Costo: " + this.costo + 
+				", Duracion: " + this.duracion + ", Tipo: " + this.tipo + ".]\n";
+	}
 }

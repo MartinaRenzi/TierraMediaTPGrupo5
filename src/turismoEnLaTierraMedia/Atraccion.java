@@ -14,9 +14,9 @@ public class Atraccion extends Producto {
 	@Override
 	public String toString() {
 
-		return "Nombre: " + this.nombre + ", Costo: " + this.costo + 
+		return "[ Nombre: " + this.nombre + ", Costo: " + this.costo + 
 				", Duracion: " + this.duracion + ", Cupo: "
-				+ this.cupo + ", Tipo: " + this.tipo + ".\n";
+				+ this.cupo + ", Tipo: " + this.tipo + ".]\n";
 	}
 
 }
