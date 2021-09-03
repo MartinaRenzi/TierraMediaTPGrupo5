@@ -1,22 +1,34 @@
 package turismoEnLaTierraMedia;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class App {
+public class App{
 	
 	private static List<Usuario> usuarios = new LinkedList<Usuario>();
 	private static List<Producto> productos = new LinkedList<Producto>();
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		usuarios = LeerArchivoCrearUsuariosYCrearLista.getUsuarios(
-				"C:\\Users\\Usuario\\Desktop\\Martina\\Turismo en la Tierra Media\\src\\turismoEnLaTierraMedia\\usuarios.txt");
-		System.out.print(usuarios);
+				"archivos/usuarios.csv");
+		//System.out.print(usuarios);//para probarlo
 		
 		
-		List<Atraccion> atracciones = LeerArchivoCrearAtraccionesYCrearLista.getAtracciones("C:\\Users\\Usuario\\Desktop\\Martina\\Turismo en la Tierra Media\\src\\turismoEnLaTierraMedia\\atracciones.txt");
-		System.out.println(atracciones);//esto es sólo una prueba
+		List<Atraccion> atracciones = LeerArchivoCrearAtraccionesYCrearLista.getAtracciones("archivos/atracciones.csv");
+		List<Promocion> promociones = LeerArchivoCrearPromocionesyCrearLista.getPromociones("archivos/promociones.csv", atracciones);
+		for(Producto atraccion : atracciones) {
+			productos.add(atraccion);
+		}
+		for (Producto promocion : promociones) {
+			productos.add(promocion);
+		}
+		System.out.println(productos);//para probarlo
+		}
+		
+	
+		
 	}
+	
+	
 
-}
+

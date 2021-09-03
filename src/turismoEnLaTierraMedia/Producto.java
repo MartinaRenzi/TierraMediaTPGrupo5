@@ -15,10 +15,30 @@ public abstract class Producto {
 		this.tipo = tipo;
 	}
 	
+	public Producto() {
+		
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	
+	public double getDuracion() {
+		return duracion;
+	}
+
+	public TipoDeAtraccion getTipo() {
+		return tipo;
+	}
+
+	public double getCosto() {
+		return costo;
+	}
+
 	@Override
 	public String toString() {
 
-		return "[ Nombre: " + this.nombre + ", Costo: " + this.costo + 
-				", Duracion: " + this.duracion + ", Tipo: " + this.tipo + ".]\n";
+		return "[ Nombre: " + this.nombre + ", Costo: " + this.costo + ", Duracion: " + this.duracion + ", Tipo: " + this.tipo;
 	}
+	
+	
 }
