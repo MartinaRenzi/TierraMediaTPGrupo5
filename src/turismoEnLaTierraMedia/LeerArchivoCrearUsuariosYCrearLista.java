@@ -16,7 +16,12 @@ public class LeerArchivoCrearUsuariosYCrearLista {
 
 			while (sc.hasNext()) {
 				String linea = sc.nextLine();
-				usuarios.add(crearUsuario(linea));
+				try {
+					usuarios.add(crearUsuario(linea));
+				} catch (Exception e) {
+					
+					System.out.println(e.getMessage());;
+				}
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -26,12 +31,15 @@ public class LeerArchivoCrearUsuariosYCrearLista {
 		return usuarios;
 	}
 
-	public static Usuario crearUsuario(String linea) {
+	public static Usuario crearUsuario(String linea) throws Exception {
 		String datos[] = linea.split(",");
 		String nombre = datos[0];
-		double presupuesto = Double.parseDouble(datos[1]);
-		double tiempoDisponible = Double.parseDouble(datos[2]);
-		TipoDeAtraccion preferencia = TipoDeAtraccion.valueOf(datos[3]);
-		return new Usuario(nombre, presupuesto, tiempoDisponible, preferencia);
+		Usuario usuario=null;
+		try {
+			usuario=new Usuario(nombre, Double.parseDouble(datos[1]), Double.parseDouble(datos[2]), TipoDeAtraccion.valueOf(datos[3]));
+		} catch (Exception e) {
+			throw new Exception("");
+		}
+		return usuario;
 	}
 }
