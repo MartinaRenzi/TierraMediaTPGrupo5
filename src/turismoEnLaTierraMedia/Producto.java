@@ -33,6 +33,10 @@ public abstract class Producto {
 	public double getCosto() {
 		return costo;
 	}
+	
+	public boolean tienePromocion() {
+		return false;
+	}
 
 	@Override
 	public String toString() {
