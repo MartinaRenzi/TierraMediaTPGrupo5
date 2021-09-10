@@ -15,17 +15,13 @@ public class LeerArchivoCrearUsuariosYCrearLista {
 			sc = new Scanner(new File(archivo));
 
 			while (sc.hasNext()) {
-				// lee cada linea del archivo
 				String linea = sc.nextLine();
-				String datos[] = linea.split(",");// el formato del archivo será con separación por coma
-				// crea a un Usuario según datos
-				String nombre = datos[0];
-				double presupuesto = Double.parseDouble(datos[1]);
-				double tiempoDisponible = Double.parseDouble(datos[2]);
-				TipoDeAtraccion preferencia = TipoDeAtraccion.valueOf(datos[3]);
-				// agrega Usuario a la lista
-				Usuario u = new Usuario(nombre, presupuesto, tiempoDisponible, preferencia);
-				usuarios.add(u);
+				try {
+					usuarios.add(crearUsuario(linea));
+				} catch (Exception e) {
+					
+					System.out.println(e.getMessage());;
+				}
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -33,5 +29,17 @@ public class LeerArchivoCrearUsuariosYCrearLista {
 		sc.close();
 
 		return usuarios;
+	}
+
+	public static Usuario crearUsuario(String linea) throws Exception {
+		String datos[] = linea.split(",");
+		String nombre = datos[0];
+		Usuario usuario=null;
+		try {
+			usuario=new Usuario(nombre, Double.parseDouble(datos[1]), Double.parseDouble(datos[2]), TipoDeAtraccion.valueOf(datos[3]));
+		} catch (Exception e) {
+			throw new Exception("");
+		}
+		return usuario;
 	}
 }

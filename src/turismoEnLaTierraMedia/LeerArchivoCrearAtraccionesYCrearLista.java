@@ -15,24 +15,24 @@ public class LeerArchivoCrearAtraccionesYCrearLista {
 			sc = new Scanner(new File(archivo));
 
 			while (sc.hasNext()) {
-				// lee cada linea del archivo
 				String linea = sc.nextLine();
-				String datos[] = linea.split(",");// el formato del archivo será con separación por coma
-				// crea una Atraccion según datos
-				String nombre = datos[0];
-				double costo = Double.parseDouble(datos[1]);
-				double duracion = Double.parseDouble(datos[2]);
-				TipoDeAtraccion tipo = TipoDeAtraccion.valueOf(datos[4]);
-				int cupo = Integer.parseInt(datos[3]);
-				// agrega Atraccion a la lista
-				Atraccion a = new Atraccion(nombre, costo, duracion, tipo, cupo);
-				atracciones.add(a);
+				atracciones.add(crearAtraccion(linea));
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		sc.close();
-
 		return atracciones;
 	}
+
+	public static Atraccion crearAtraccion(String linea) {
+		String datos[] = linea.split(",");
+		String nombre = datos[0];
+		double costo = Double.parseDouble(datos[1]);
+		double duracion = Double.parseDouble(datos[2]);
+		TipoDeAtraccion tipo = TipoDeAtraccion.valueOf(datos[4]);
+		int cupo = Integer.parseInt(datos[3]);
+		return new Atraccion(nombre, costo, duracion, tipo, cupo);
+	}
+
 }
