@@ -16,9 +16,9 @@ public class Usuario {
 	@Override
 	public String toString() {
 	
-		return "Nombre: " + this.nombre + ", Presupuesto: " + this.presupuesto + 
+		return "[ Nombre: " + this.nombre + ", Presupuesto: " + this.presupuesto + 
 				", Tiempo disponible: " + this.tiempoDisponible + ", Preferencia: " 
-				+ this.preferencia	+ ".\n" ;
+				+ this.preferencia	+ ".]\n" ;
 	}
 
 }
