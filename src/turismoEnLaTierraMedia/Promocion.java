@@ -27,6 +27,11 @@ public abstract class Promocion extends Producto {
 		return atraccionesQueIncluye;
 	}
 	@Override
+    public boolean tienePromocion() {
+		return true;
+	}
+	
+	@Override
 	public String toString() {
 		return super.toString() + ", Incluye: " + obtenerNombreAtraccionesDeLista();
 	}
