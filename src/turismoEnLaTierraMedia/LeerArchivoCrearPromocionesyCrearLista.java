@@ -2,6 +2,7 @@ package turismoEnLaTierraMedia;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,13 +16,32 @@ public class LeerArchivoCrearPromocionesyCrearLista {
 			sc = new Scanner(new File(archivo));
 
 			while (sc.hasNext()) {
-				String linea = sc.nextLine();
-				promociones.add(crearPromocion(linea, atracciones));
+				try {
+					String linea = sc.nextLine();
+					promociones.add(crearPromocion(linea, atracciones));
+				} catch (ArrayIndexOutOfBoundsException e) {
+					System.out.println(e.getMessage());
+				}
 			}
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				if (sc != null) {
+					sc.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 		}
-		sc.close();
 		return promociones;
 	}
 
