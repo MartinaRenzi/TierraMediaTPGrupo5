@@ -21,7 +21,6 @@ public class App {
 
         productos.addAll(atracciones);
 
-
         productos.addAll(promociones);
 
         System.out.println(productos);//para probarlo
