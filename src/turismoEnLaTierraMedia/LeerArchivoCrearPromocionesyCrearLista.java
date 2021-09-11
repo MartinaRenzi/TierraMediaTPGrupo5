@@ -55,7 +55,7 @@ public class LeerArchivoCrearPromocionesyCrearLista {
 		} else if (tipoDePromocion.equals("AXB")) {
 			return crearAXB(linea, atracciones);
 		} else
-			throw new Exception("Tipo de promoción inválido");
+			throw new Exception("Tipo de promociï¿½n invï¿½lido");
 
 	}
 

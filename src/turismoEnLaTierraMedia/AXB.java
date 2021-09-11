@@ -3,24 +3,24 @@ package turismoEnLaTierraMedia;
 import java.util.LinkedList;
 
 public class AXB extends Promocion {
-	private Atraccion atraccionBonificada;
+    private Atraccion atraccionBonificada;
 
-	public AXB(String nombre, TipoDeAtraccion tipo, LinkedList<Atraccion> atracciones, Atraccion atraccionBonificada) {
-		super(nombre, tipo, atracciones);
-		this.atraccionBonificada = atraccionBonificada;
-		this.calcularCosto();
-		this.duracion += atraccionBonificada.duracion;
-	}
+    public AXB(String nombre, TipoDeAtraccion tipo, LinkedList<Atraccion> atracciones, Atraccion atraccionBonificada) {
+        super(nombre, tipo, atracciones);
+        this.atraccionBonificada = atraccionBonificada;
+        this.calcularCosto();
+        this.duracion += atraccionBonificada.duracion;
+    }
 
-	private void calcularCosto() {
-		for (Atraccion atraccion : atracciones) {
-			this.costo += atraccion.costo;
-		}
-	}
+    private void calcularCosto() {
+        for (Atraccion atraccion : atracciones) {
+            this.costo += atraccion.costo;
+        }
+    }
 
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
 
-		return super.toString() + ", y lleva de regalo: " + this.atraccionBonificada.getNombre() + "]";
-	}
+        return super.toString() + ", y lleva de regalo: " + this.atraccionBonificada.getNombre() + "]";
+    }
 }
