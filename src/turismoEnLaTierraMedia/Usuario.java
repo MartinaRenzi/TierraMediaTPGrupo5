@@ -13,6 +13,16 @@ public class Usuario {
         this.preferencia = preferencia;
     }
 
+    public Boolean precioCorrecto(double precio) {
+        return precio <= presupuesto;
+    }
+
+    public Boolean tengoTiempo(double duracion) {
+        return duracion <= tiempoDisponible;
+    }
+
+
+
     @Override
     public String toString() {
 

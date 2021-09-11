@@ -68,7 +68,7 @@ public class LeerArchivoCrearPromocionesyCrearLista {
 		for (int i = 4; i < datos.length; i++) {
 			atraccionesIncluidas.add(obtenerAtraccionPorNombre(datos[i], atracciones));
 		}
-		return new Absoluta(nombre, tipo, atraccionesIncluidas, costoPaquete);
+		return new PromocionAbsoluta(nombre, tipo, atraccionesIncluidas, costoPaquete);
 	}
 
 	private static Promocion crearPorcentual(String linea, List<Atraccion> atracciones) {
@@ -80,7 +80,7 @@ public class LeerArchivoCrearPromocionesyCrearLista {
 		for (int i = 4; i < datos.length; i++) {
 			atraccionesIncluidas.add(obtenerAtraccionPorNombre(datos[i], atracciones));
 		}
-		return new Porcentual(nombre, tipo, atraccionesIncluidas, descuento);
+		return new PromocionPorcentual(nombre, tipo, atraccionesIncluidas, descuento);
 	}
 
 	private static Promocion crearAXB(String linea, List<Atraccion> atracciones) {
@@ -92,7 +92,7 @@ public class LeerArchivoCrearPromocionesyCrearLista {
 		for (int i = 3; i < datos.length - 1; i++) {
 			atraccionesIncluidas.add(obtenerAtraccionPorNombre(datos[i], atracciones));
 		}
-		return new AXB(nombre, tipo, atraccionesIncluidas, atraccionBonificada);
+		return new PromocionAXB(nombre, tipo, atraccionesIncluidas, atraccionBonificada);
 	}
 
 	private static Atraccion obtenerAtraccionPorNombre(String nombre, List<Atraccion> atracciones) {

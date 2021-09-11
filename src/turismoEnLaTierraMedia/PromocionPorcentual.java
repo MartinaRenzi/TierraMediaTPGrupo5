@@ -2,12 +2,12 @@ package turismoEnLaTierraMedia;
 
 import java.util.LinkedList;
 
-public class Porcentual extends Promocion {
+public class PromocionPorcentual extends Promocion {
 
     private double descuento;
     private double costoSinDescuento;
 
-    public Porcentual(String nombre, TipoDeAtraccion tipo, LinkedList<Atraccion> atracciones, double descuento) {
+    public PromocionPorcentual(String nombre, TipoDeAtraccion tipo, LinkedList<Atraccion> atracciones, double descuento) {
         super(nombre, tipo, atracciones);
         this.descuento = descuento;
         this.aplicarDescuento();

@@ -2,10 +2,10 @@ package turismoEnLaTierraMedia;
 
 import java.util.LinkedList;
 
-public class AXB extends Promocion {
+public class PromocionAXB extends Promocion {
     private Atraccion atraccionBonificada;
 
-    public AXB(String nombre, TipoDeAtraccion tipo, LinkedList<Atraccion> atracciones, Atraccion atraccionBonificada) {
+    public PromocionAXB(String nombre, TipoDeAtraccion tipo, LinkedList<Atraccion> atracciones, Atraccion atraccionBonificada) {
         super(nombre, tipo, atracciones);
         this.atraccionBonificada = atraccionBonificada;
         this.calcularCosto();
