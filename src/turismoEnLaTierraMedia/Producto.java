@@ -1,48 +1,49 @@
 package turismoEnLaTierraMedia;
 
+import java.util.List;
+
 public abstract class Producto {
-	
-	protected String nombre;
-	protected double costo;
-	protected double duracion;
-	protected TipoDeAtraccion tipo;
 
-	public Producto(String nombre, double costo, double duracion, TipoDeAtraccion tipo) {
-		super();
-		this.nombre=nombre;
-		this.costo = costo;
-		this.duracion = duracion;
-		this.tipo = tipo;
-	}
-	
-	public Producto() {
-		
-	}
-	public String getNombre() {
-		return nombre;
-	}
-	
-	public double getDuracion() {
-		return duracion;
-	}
+    protected String nombre;
+    protected double costo;
+    protected double duracion;
+    protected TipoDeAtraccion tipo;
 
-	public TipoDeAtraccion getTipo() {
-		return tipo;
-	}
+    public Producto(String nombre, double costo, double duracion, TipoDeAtraccion tipo) {
+        super();
+        this.nombre = nombre;
+        this.costo = costo;
+        this.duracion = duracion;
+        this.tipo = tipo;
+    }
 
-	public double getCosto() {
-		return costo;
-	}
-	
-	public boolean tienePromocion() {
-		return false;
-	}
+    public Producto() {
 
-	@Override
-	public String toString() {
+    }
 
-		return "[ Nombre: " + this.nombre + ", Costo: " + this.costo + ", Duracion: " + this.duracion + ", Tipo: " + this.tipo;
-	}
-	
-	
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getDuracion() {
+        return duracion;
+    }
+
+    public abstract List<TipoDeAtraccion> getListaDeTiposAtraccion();
+
+    public double getCosto() {
+        return costo;
+    }
+
+    public boolean tienePromocion() {
+        return false;
+    }
+
+    @Override
+    public String toString() {
+
+        return "[ Nombre: " + this.nombre + ", Costo: " + this.costo + ", Duracion: " + this.duracion + ", Tipo: " + this.tipo;
+    }
+
+
 }
