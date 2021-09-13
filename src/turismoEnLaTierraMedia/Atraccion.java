@@ -17,6 +17,10 @@ public class Atraccion extends Producto {
     public TipoDeAtraccion getTipo() {
         return tipo;
     }
+    
+    public int getCantidadVisitantes(){
+        return this.cupo;
+    }
 
     @Override
     public List<TipoDeAtraccion> getListaDeTiposAtraccion() {

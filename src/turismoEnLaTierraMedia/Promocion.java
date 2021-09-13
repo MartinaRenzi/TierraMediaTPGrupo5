@@ -44,6 +44,7 @@ public abstract class Promocion extends Producto {
             duracionTotal =+ atraccion.getDuracion();
         return duracionTotal;
     }
+    
     @Override
     public List<TipoDeAtraccion> getListaDeTiposAtraccion() {
         List<TipoDeAtraccion> tiposAtracciones = new ArrayList<TipoDeAtraccion>();
