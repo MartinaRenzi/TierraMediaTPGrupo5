@@ -1,5 +1,7 @@
 package turismoEnLaTierraMedia;
 
+import java.util.List;
+
 public class Usuario {
     private String nombre;
     private double presupuesto;
@@ -20,7 +22,10 @@ public class Usuario {
     public Boolean tengoTiempo(double duracion) {
         return duracion <= tiempoDisponible;
     }
-
+    
+    public Boolean estanBienTiposAtraccion(List<TipoDeAtraccion> tiposAtraccion) {
+		return tiposAtraccion.contains(preferencia);
+	}
 
 
     @Override
