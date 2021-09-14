@@ -12,13 +12,16 @@ public class Usuario {
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
 	}
+	
+	public TipoDeAtraccion getPreferencia() {
+		return this.preferencia;
+	}
 
 	@Override
 	public String toString() {
-	
-		return "[ Nombre: " + this.nombre + ", Presupuesto: " + this.presupuesto + 
-				", Tiempo disponible: " + this.tiempoDisponible + ", Preferencia: " 
-				+ this.preferencia	+ ".]\n" ;
+
+		return "[ Nombre: " + this.nombre + ", Presupuesto: " + this.presupuesto + ", Tiempo disponible: "
+				+ this.tiempoDisponible + ", Preferencia: " + this.preferencia + ".]\n";
 	}
 
 }

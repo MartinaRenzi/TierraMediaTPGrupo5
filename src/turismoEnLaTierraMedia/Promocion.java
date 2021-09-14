@@ -18,17 +18,23 @@ public abstract class Promocion extends Producto {
 			this.duracion += atraccion.duracion;
 		}
 	}
-	
+
 	public LinkedList<String> obtenerNombreAtraccionesDeLista() {
 		LinkedList<String> atraccionesQueIncluye = new LinkedList<String>();
 		for (Atraccion atraccion : atracciones) {
 			atraccionesQueIncluye.add(atraccion.getNombre());
-			}
+		}
 		return atraccionesQueIncluye;
 	}
+
 	@Override
 	public String toString() {
 		return super.toString() + ", Incluye: " + obtenerNombreAtraccionesDeLista();
+	}
+
+	@Override
+	public boolean esPromo() {
+		return true;
 	}
 
 }

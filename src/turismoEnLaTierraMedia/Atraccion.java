@@ -10,11 +10,9 @@ public class Atraccion extends Producto {
 		this.cupo = cupo;
 
 	}
-	
 
-
-@Override
-public String toString() {
-	return super.toString() + ", Cupo: "+ this.cupo + ".]\n";
-}
+	@Override
+	public String toString() {
+		return super.toString() + ", Cupo: " + this.cupo + ".]\n";
+	}
 }

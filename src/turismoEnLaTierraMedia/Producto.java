@@ -1,7 +1,7 @@
 package turismoEnLaTierraMedia;
 
 public abstract class Producto {
-	
+
 	protected String nombre;
 	protected double costo;
 	protected double duracion;
@@ -9,19 +9,20 @@ public abstract class Producto {
 
 	public Producto(String nombre, double costo, double duracion, TipoDeAtraccion tipo) {
 		super();
-		this.nombre=nombre;
+		this.nombre = nombre;
 		this.costo = costo;
 		this.duracion = duracion;
 		this.tipo = tipo;
 	}
-	
+
 	public Producto() {
-		
+
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
-	
+
 	public double getDuracion() {
 		return duracion;
 	}
@@ -37,8 +38,12 @@ public abstract class Producto {
 	@Override
 	public String toString() {
 
-		return "[ Nombre: " + this.nombre + ", Costo: " + this.costo + ", Duracion: " + this.duracion + ", Tipo: " + this.tipo;
+		return "[ Nombre: " + this.nombre + ", Costo: " + this.costo + ", Duracion: " + this.duracion + ", Tipo: "
+				+ this.tipo;
 	}
-	
-	
+
+	public boolean esPromo() {
+		return false;
+	}
+
 }
