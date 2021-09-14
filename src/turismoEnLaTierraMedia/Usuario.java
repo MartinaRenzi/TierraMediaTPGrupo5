@@ -12,9 +12,39 @@ public class Usuario {
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
 	}
-	
+
 	public TipoDeAtraccion getPreferencia() {
 		return this.preferencia;
+	}
+
+	public void descontarTiempo(Producto producto) {
+		if (this.tiempoDisponible < producto.getDuracion()) {
+			System.out.println("no hay tiempo suficiente");
+		} else {
+			this.tiempoDisponible -= producto.getDuracion();
+		}
+
+	}
+
+	public double getPresupuesto() {
+		return presupuesto;
+	}
+
+
+	public double getTiempoDisponible() {
+		return tiempoDisponible;
+	}
+
+	
+
+	public void descontarDinero(Producto producto) {
+		if (this.presupuesto < producto.costo) {
+			System.out.println("no hay dinero suficiente");
+
+		} else {
+			this.presupuesto -= producto.costo;
+
+		}
 	}
 
 	@Override
