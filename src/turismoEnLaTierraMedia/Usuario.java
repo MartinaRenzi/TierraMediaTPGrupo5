@@ -21,6 +21,10 @@ public class Usuario {
         return duracion <= tiempoDisponible;
     }
 
+    public TipoDeAtraccion getPreferencia() {
+		return this.preferencia;
+	}
+
 
 
     @Override

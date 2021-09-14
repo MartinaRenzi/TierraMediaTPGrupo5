@@ -4,46 +4,50 @@ import java.util.List;
 
 public abstract class Producto {
 
-    protected String nombre;
-    protected double costo;
-    protected double duracion;
-    protected TipoDeAtraccion tipo;
+	protected String nombre;
+	protected double costo;
+	protected double duracion;
+	protected TipoDeAtraccion tipo;
 
-    public Producto(String nombre, double costo, double duracion, TipoDeAtraccion tipo) {
-        super();
-        this.nombre = nombre;
-        this.costo = costo;
-        this.duracion = duracion;
-        this.tipo = tipo;
-    }
+	public Producto(String nombre, double costo, double duracion, TipoDeAtraccion tipo) {
+		super();
+		this.nombre = nombre;
+		this.costo = costo;
+		this.duracion = duracion;
+		this.tipo = tipo;
+	}
 
-    public Producto() {
+	public Producto() {
 
-    }
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public double getDuracion() {
-        return duracion;
-    }
+	public double getDuracion() {
+		return duracion;
+	}
 
-    public abstract List<TipoDeAtraccion> getListaDeTiposAtraccion();
+	public TipoDeAtraccion getTipo() {
+		return tipo;
+	}
 
-    public double getCosto() {
-        return costo;
-    }
+	public double getCosto() {
+		return costo;
+	}
 
-    public boolean tienePromocion() {
-        return false;
-    }
+	 public abstract List<TipoDeAtraccion> getListaDeTiposAtraccion();
 
-    @Override
-    public String toString() {
+	@Override
+	public String toString() {
 
-        return "[ Nombre: " + this.nombre + ", Costo: " + this.costo + ", Duracion: " + this.duracion + ", Tipo: " + this.tipo;
-    }
+		return "[ Nombre: " + this.nombre + ", Costo: " + this.costo + ", Duracion: " + this.duracion + ", Tipo: "
+				+ this.tipo;
+	}
 
+	public boolean tienePromocion() {
+		return false;
+	}
 
 }
