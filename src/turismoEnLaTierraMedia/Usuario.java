@@ -1,5 +1,7 @@
 package turismoEnLaTierraMedia;
 
+import java.util.List;
+
 public class Usuario {
     private String nombre;
     private double presupuesto;
@@ -25,6 +27,10 @@ public class Usuario {
 		return this.preferencia;
 	}
 
+    
+    public Boolean estanBienTiposAtraccion(List<TipoDeAtraccion> tiposAtraccion) {
+		return tiposAtraccion.contains(preferencia);
+	}
 
 
     @Override
