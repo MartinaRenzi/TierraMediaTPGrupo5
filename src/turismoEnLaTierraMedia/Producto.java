@@ -13,8 +13,8 @@ public abstract class Producto {
 		super();
 		this.nombre = nombre;
 		this.costo = costo;
-		this.duracion = duracion;
 		this.tipo = tipo;
+		this.duracion = duracion;
 	}
 
 	public Producto() {
