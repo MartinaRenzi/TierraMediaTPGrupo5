@@ -6,12 +6,16 @@ import java.util.Scanner;
 
 public class Parque {
 
-	private static List<Usuario> usuarios = new LinkedList<Usuario>();
+	private static List<Usuario> usuarios;
 	private static List<Producto> productos = new LinkedList<Producto>();
 
-	public  void ofrecerProductos() throws Exception {
+	public Parque() throws Exception {
+		this.crearListasDeUsuariosYDeProductos();
+
+	}
+
+	private void crearListasDeUsuariosYDeProductos() throws Exception {
 		usuarios = LeerArchivoCrearUsuariosYCrearLista.getUsuarios("archivos/usuarios.csv");
-		// System.out.print(usuarios);//para probarlo
 
 		List<Atraccion> atracciones = LeerArchivoCrearAtraccionesYCrearLista.getAtracciones("archivos/atracciones.csv");
 		List<Promocion> promociones = LeerArchivoCrearPromocionesyCrearLista.getPromociones("archivos/promociones.csv",
@@ -22,8 +26,10 @@ public class Parque {
 		for (Producto promocion : promociones) {
 			productos.add(promocion);
 		}
-		// System.out.println(productos);// para probarlo
 
+	}
+
+	public void ofrecerProductos() throws Exception {
 
 		for (Usuario usuario : usuarios) {
 			productos.sort(new ProductosPorPreferencia(usuario.getPreferencia()));
