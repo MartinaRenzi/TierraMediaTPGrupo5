@@ -1,6 +1,9 @@
 package turismoEnLaTierraMedia;
 
+import java.util.List;
+
 public class Usuario {
+
 	private String nombre;
 	private double presupuesto;
 	private double tiempoDisponible;
@@ -47,11 +50,14 @@ public class Usuario {
 		}
 	}
 
-	@Override
-	public String toString() {
 
-		return "[ Nombre: " + this.nombre + ", Presupuesto: " + this.presupuesto + ", Tiempo disponible: "
-				+ this.tiempoDisponible + ", Preferencia: " + this.preferencia + ".]\n";
-	}
+
+    @Override
+    public String toString() {
+
+        return "[ Nombre: " + this.nombre + ", Presupuesto: " + this.presupuesto +
+                ", Tiempo disponible: " + this.tiempoDisponible + ", Preferencia: "
+                + this.preferencia + ".]\n";
+    }
 
 }

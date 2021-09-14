@@ -1,5 +1,7 @@
 package turismoEnLaTierraMedia;
 
+import java.util.List;
+
 public abstract class Producto {
 
 	protected String nombre;
@@ -35,6 +37,8 @@ public abstract class Producto {
 		return costo;
 	}
 
+	 public abstract List<TipoDeAtraccion> getListaDeTiposAtraccion();
+
 	@Override
 	public String toString() {
 
@@ -42,7 +46,7 @@ public abstract class Producto {
 				+ this.tipo;
 	}
 
-	public boolean esPromo() {
+	public boolean tienePromocion() {
 		return false;
 	}
 

@@ -1,6 +1,10 @@
 package turismoEnLaTierraMedia;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Atraccion extends Producto {
+
 
 	private int cupo;
 	
@@ -27,8 +31,9 @@ public class Atraccion extends Producto {
 		}
 	}
 
-	@Override
-	public String toString() {
-		return super.toString() + ", Cupo: " + this.cupo + ".]\n";
-	}
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Cupo: " + this.cupo + ".]\n";
+    }
 }
