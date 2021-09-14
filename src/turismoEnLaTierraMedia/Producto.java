@@ -1,5 +1,7 @@
 package turismoEnLaTierraMedia;
 
+import java.util.List;
+
 public abstract class Producto {
 
 	protected String nombre;
@@ -34,6 +36,8 @@ public abstract class Producto {
 	public double getCosto() {
 		return costo;
 	}
+
+	 public abstract List<TipoDeAtraccion> getListaDeTiposAtraccion();
 
 	@Override
 	public String toString() {
