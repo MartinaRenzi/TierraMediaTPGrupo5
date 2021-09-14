@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GenerarSugerencias {
-
+	//Para revisar
+	
+	/*
 	private List<Producto> promociones;
 
 	public GenerarSugerencias(List<Producto> promociones) {
@@ -23,4 +25,5 @@ public class GenerarSugerencias {
 		}
 		return sugerencias;
 	}
+	*/
 }
