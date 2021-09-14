@@ -63,9 +63,4 @@ public abstract class Promocion extends Producto {
         return super.toString() + ", Incluye: " + obtenerNombreAtraccionesDeLista();
     }
 
-	@Override
-	public boolean esPromo() {
-		return true;
-	}
-
 }

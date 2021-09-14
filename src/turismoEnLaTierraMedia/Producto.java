@@ -46,7 +46,7 @@ public abstract class Producto {
 				+ this.tipo;
 	}
 
-	public boolean esPromo() {
+	public boolean tienePromocion() {
 		return false;
 	}
 
