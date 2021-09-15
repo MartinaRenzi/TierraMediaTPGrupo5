@@ -1,5 +1,6 @@
 package turismoEnLaTierraMedia;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public abstract class Promocion extends Producto {
@@ -13,9 +14,35 @@ public abstract class Promocion extends Producto {
 		this.calcularDuracion();
 	}
 
+	@Override
+	public boolean contiene(Producto prod) {
+		boolean contiene = false;
+		Iterator<Atraccion> itr = this.atracciones.iterator();
+		while (!contiene && itr.hasNext()) {
+			contiene = prod.contiene(itr.next());
+		}
+		return contiene;
+	}
+
 	private void calcularDuracion() {
 		for (Atraccion atraccion : atracciones) {
 			this.duracion += atraccion.duracion;
+		}
+	}
+
+	public boolean hayCupo() {
+		boolean hayCupo = true;
+		Iterator<Atraccion> itr = this.atracciones.iterator();
+		while (hayCupo && itr.hasNext()) {
+			hayCupo = itr.next().hayCupo();
+
+		}
+		return hayCupo;
+	}
+
+	public void descontarCupo() throws Exception {
+		for (Atraccion atraccion : atracciones) {
+			atraccion.descontarCupo();
 		}
 	}
 
@@ -29,7 +56,7 @@ public abstract class Promocion extends Producto {
 
 	@Override
 	public String toString() {
-		return super.toString() + ", Incluye: " + obtenerNombreAtraccionesDeLista();
+		return super.toString() + ", Incluye: " + this.obtenerNombreAtraccionesDeLista();
 	}
 
 	@Override

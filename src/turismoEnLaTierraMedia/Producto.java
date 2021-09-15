@@ -14,6 +14,12 @@ public abstract class Producto {
 		this.tipo = tipo;
 		this.duracion = duracion;
 	}
+	
+	public abstract boolean contiene(Producto producto);
+	
+	public abstract boolean hayCupo();
+	
+	public abstract void descontarCupo() throws Exception;
 
 	public Producto() {
 

@@ -1,6 +1,7 @@
 package turismoEnLaTierraMedia;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,7 +11,11 @@ public class Parque {
 	private static List<Usuario> usuarios = new LinkedList<Usuario>();
 	private static List<Producto> productos = new LinkedList<Producto>();
 
-	public void leerArchivos() throws Exception {
+	public Parque() throws Exception {
+		this.leerArchivos();
+	}
+
+	private void leerArchivos() throws Exception {
 		usuarios = LeerArchivoCrearUsuariosYCrearLista.getUsuarios("archivos/usuarios.csv");
 		// System.out.print(usuarios);//para probarlo
 
@@ -27,7 +32,7 @@ public class Parque {
 
 	}
 
-	public void ofrecerProductos() {
+	public void ofrecerProductos() throws Exception {
 		for (Usuario usuario : usuarios) {
 			productos.sort(new ProductosPorPreferencia(usuario.getPreferencia()));
 			System.out.println(usuario);
@@ -37,21 +42,31 @@ public class Parque {
 			char respuesta;
 
 			for (Producto oferta : productos) {
+				boolean contiene = false;
+				Iterator<Producto> itr = itinerarioAceptado.iterator();
+				while (!contiene && itr.hasNext()) {
+					contiene = oferta.contiene(itr.next());
+				}
 
-				while ((!itinerarioAceptado.contains(oferta) && !ofertasNegadas.contains(oferta))
-						&& usuario.getPresupuesto() > oferta.costo && usuario.getTiempoDisponible() > oferta.duracion) {
+				if ((!contiene) && usuario.getPresupuesto() > oferta.costo
+						&& usuario.getTiempoDisponible() > oferta.duracion && oferta.hayCupo()) {
 					Scanner aceptacionOferta = new Scanner(System.in);
+					
 					System.out.println("ingrese S para aceptar y N para seguir viendo nuestras Atracciones");
 					System.out.println(oferta);
+					
 					respuesta = aceptacionOferta.next().charAt(0);
-					if (respuesta == 's') {
+					while(!(respuesta == 's') && !(respuesta == 'n')) {
+						System.out.println("opcion invalida");
+						respuesta = aceptacionOferta.next().charAt(0);
+					
+					}
+						if (respuesta == 's') {
 						itinerarioAceptado.add(oferta);
 						usuario.descontarDinero(oferta);
 						usuario.descontarTiempo(oferta);
-
-					} else if (respuesta == 'n') {
-
-						ofertasNegadas.add(oferta);
+						oferta.descontarCupo();
+						System.out.println(itinerarioAceptado);
 
 					}
 

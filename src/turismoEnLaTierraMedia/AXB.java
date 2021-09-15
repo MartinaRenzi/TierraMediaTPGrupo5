@@ -1,5 +1,6 @@
 package turismoEnLaTierraMedia;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class AXB extends Promocion {
@@ -10,6 +11,25 @@ public class AXB extends Promocion {
 		this.atraccionBonificada = atraccionBonificada;
 		this.calcularCosto();
 		this.duracion += atraccionBonificada.duracion;
+	}
+
+	@Override
+	public boolean contiene(Producto prod) {
+
+		return super.contiene(prod) || this.atraccionBonificada.contiene(prod);
+	}
+	
+	@Override
+	public boolean hayCupo() {
+	
+		return super.hayCupo() && atraccionBonificada.hayCupo();
+	}
+
+
+	public void descontarCupo() throws Exception {
+		super.descontarCupo();
+			
+		atraccionBonificada.descontarCupo();
 	}
 
 	private void calcularCosto() {
