@@ -1,6 +1,5 @@
 package turismoEnLaTierraMedia;
 
-import java.util.List;
 
 public abstract class Producto {
 
@@ -16,6 +15,12 @@ public abstract class Producto {
 		this.tipo = tipo;
 		this.duracion = duracion;
 	}
+
+	public abstract boolean contiene(Producto producto);
+
+	public abstract boolean hayCupo();
+
+	public abstract void descontarCupo() throws Exception;
 
 	public Producto() {
 
@@ -37,8 +42,6 @@ public abstract class Producto {
 		return costo;
 	}
 
-	 public abstract List<TipoDeAtraccion> getListaDeTiposAtraccion();
-
 	@Override
 	public String toString() {
 
@@ -46,7 +49,7 @@ public abstract class Producto {
 				+ this.tipo;
 	}
 
-	public boolean tienePromocion() {
+	public boolean esPromo() {
 		return false;
 	}
 
