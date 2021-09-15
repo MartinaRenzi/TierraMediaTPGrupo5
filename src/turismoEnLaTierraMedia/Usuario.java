@@ -26,6 +26,10 @@ public class Usuario {
 
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
+
 	public double getPresupuesto() {
 		return presupuesto;
 	}

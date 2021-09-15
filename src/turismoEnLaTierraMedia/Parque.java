@@ -1,5 +1,8 @@
 package turismoEnLaTierraMedia;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -37,7 +40,6 @@ public class Parque {
 			productos.sort(new ProductosPorPreferencia(usuario.getPreferencia()));
 			System.out.println(usuario);
 
-			List<Producto> ofertasNegadas = new ArrayList<Producto>();
 			List<Producto> itinerarioAceptado = new ArrayList<Producto>();
 			char respuesta;
 
@@ -48,8 +50,8 @@ public class Parque {
 					contiene = oferta.contiene(itr.next());
 				}
 
-				if ((!contiene) && usuario.getPresupuesto() > oferta.costo
-						&& usuario.getTiempoDisponible() > oferta.duracion && oferta.hayCupo()) {
+				if ((!contiene) && usuario.getPresupuesto() >= oferta.costo
+						&& usuario.getTiempoDisponible() >= oferta.duracion && oferta.hayCupo()) {
 					Scanner aceptacionOferta = new Scanner(System.in);
 
 					System.out.println("ingrese S para aceptar y N para seguir viendo nuestras Atracciones");
@@ -74,8 +76,33 @@ public class Parque {
 
 			}
 			System.out.println(itinerarioAceptado);
+			this.CrearArchivodeSalida(usuario, itinerarioAceptado);
 
 		}
 
 	}
+	
+private void CrearArchivodeSalida(Usuario usuario, List<Producto> itinerario) throws IOException {
+		
+		PrintWriter salida = new PrintWriter(new FileWriter("archivos/compraDe" + usuario.getNombre() + ".txt"));
+		salida.println(this.getResumenDeCompra(usuario, itinerario));
+		salida.close();
+	}
+	
+	
+	private String getResumenDeCompra(Usuario usuario, List<Producto> itinerario) {
+		int totalAPagar = 0;
+		double tiempoAInvertir = 0;
+		String productosResumidos = "";
+		for (Producto producto : itinerario) {
+			totalAPagar += producto.getCosto();
+			tiempoAInvertir += producto.getDuracion();
+			productosResumidos += (" [" + producto.getNombre() + "]");
+		}
+		return "Nombre: " + usuario.getNombre() + "\n" +
+		       "Ha comprado:" + productosResumidos + "\n" +
+		       "Total a pagar: " + totalAPagar + " monedas \n" + 
+		       "Tiempo a invertir: " + tiempoAInvertir + " horas de diversión \n";
+	}
+
 }
