@@ -41,7 +41,7 @@ public class Parque {
 			System.out.println(usuario);
 
 			List<Producto> itinerarioAceptado = new ArrayList<Producto>();
-			char respuesta;
+			String respuestaUsuario;
 
 			for (Producto oferta : productos) {
 				boolean contiene = false;
@@ -52,18 +52,20 @@ public class Parque {
 
 				if ((!contiene) && usuario.getPresupuesto() >= oferta.costo
 						&& usuario.getTiempoDisponible() >= oferta.duracion && oferta.hayCupo()) {
+					
 					Scanner aceptacionOferta = new Scanner(System.in);
 
 					System.out.println("ingrese S para aceptar y N para seguir viendo nuestras Atracciones");
 					System.out.println(oferta);
 
-					respuesta = aceptacionOferta.next().charAt(0);
-					while (!(respuesta == 's') && !(respuesta == 'n')) {
-						System.out.println("opcion invalida");
-						respuesta = aceptacionOferta.next().charAt(0);
+				
+					respuestaUsuario = aceptacionOferta.nextLine().toLowerCase();
+					while (!respuestaUsuario.equals("s") && !respuestaUsuario.equals("n")) {
+						System.out.println("Opcion invalida. Debes elegir entre S y N");
+						respuestaUsuario = aceptacionOferta.nextLine();
 
 					}
-					if (respuesta == 's') {
+					if (respuestaUsuario.equals("s")) {
 						itinerarioAceptado.add(oferta);
 						usuario.descontarDinero(oferta);
 						usuario.descontarTiempo(oferta);
@@ -71,7 +73,6 @@ public class Parque {
 						System.out.println(itinerarioAceptado);
 
 					}
-
 				}
 
 			}
@@ -102,7 +103,7 @@ private void CrearArchivodeSalida(Usuario usuario, List<Producto> itinerario) th
 		return "Nombre: " + usuario.getNombre() + "\n" +
 		       "Ha comprado:" + productosResumidos + "\n" +
 		       "Total a pagar: " + totalAPagar + " monedas \n" + 
-		       "Tiempo a invertir: " + tiempoAInvertir + " horas de diversión \n";
+		       "Tiempo a invertir: " + tiempoAInvertir + " horas de diversiï¿½n \n";
 	}
 
 }
