@@ -11,6 +11,27 @@ public class PromocionAXB extends Promocion {
         this.calcularCosto();
         this.duracion += atraccionBonificada.duracion;
     }
+    
+    @Override
+	public boolean contiene(Producto prod) {
+
+		return super.contiene(prod) || this.atraccionBonificada.contiene(prod);
+	}
+	
+	@Override
+	public boolean hayCupo() {
+	
+		return super.hayCupo() && atraccionBonificada.hayCupo();
+	}
+
+
+	public void descontarCupo() throws Exception {
+		super.descontarCupo();
+			
+		atraccionBonificada.descontarCupo();
+	}
+    
+    
 
     private void calcularCosto() {
         for (Atraccion atraccion : atracciones) {

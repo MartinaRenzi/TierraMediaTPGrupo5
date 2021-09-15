@@ -23,7 +23,7 @@ public class LeerArchivoCrearPromocionesyCrearLista {
 					System.out.println(e.getMessage());
 				}
 			}
-			
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 

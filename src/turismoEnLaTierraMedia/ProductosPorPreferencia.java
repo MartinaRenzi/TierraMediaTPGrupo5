@@ -13,15 +13,15 @@ public class ProductosPorPreferencia implements Comparator<Producto> {
 	@Override
 	public int compare(Producto p1, Producto p2) {
 		if (p1.tipo == this.tipo && p2.tipo == this.tipo) {
-			if (p1.tienePromocion() && p2.tienePromocion()) {
+			if (p1.esPromo() && p2.esPromo()) {
 				return comparar(p1, p2);
 			} else {
 				return compararPorBool(p1, p2);
 			}
 		} else if (p1.tipo != this.tipo && p2.tipo != this.tipo) {
-			if (p1.tienePromocion() && p2.tienePromocion()) {
+			if (p1.esPromo() && p2.esPromo()) {
 				return comparar(p1, p2);
-			} else if (!p1.tienePromocion() && !p2.tienePromocion()) {
+			} else if (!p1.esPromo() && !p2.esPromo()) {
 				return comparar(p1, p2);
 			} else {
 				return compararPorBool(p1, p2);
@@ -36,7 +36,7 @@ public class ProductosPorPreferencia implements Comparator<Producto> {
 	}
 
 	private int compararPorBool(Producto p1, Producto p2) {
-		return -Boolean.compare(p1.tienePromocion(), p2.tienePromocion());
+		return -Boolean.compare(p1.esPromo(), p2.esPromo());
 	}
 
 	private int comparar(Producto p1, Producto p2) {

@@ -1,6 +1,5 @@
 package turismoEnLaTierraMedia;
 
-
 public class Usuario {
 	private String nombre;
 	private double presupuesto;
@@ -31,12 +30,9 @@ public class Usuario {
 		return presupuesto;
 	}
 
-
 	public double getTiempoDisponible() {
 		return tiempoDisponible;
 	}
-
-	
 
 	public void descontarDinero(Producto producto) {
 		if (this.presupuesto < producto.costo) {
