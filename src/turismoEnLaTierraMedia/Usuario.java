@@ -17,15 +17,6 @@ public class Usuario {
 		return this.preferencia;
 	}
 
-	public void descontarTiempo(Producto producto) {
-		if (this.tiempoDisponible < producto.getDuracion()) {
-			System.out.println("no hay tiempo suficiente");
-		} else {
-			this.tiempoDisponible -= producto.getDuracion();
-		}
-
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
@@ -36,6 +27,15 @@ public class Usuario {
 
 	public double getTiempoDisponible() {
 		return tiempoDisponible;
+	}
+
+	public void descontarTiempo(Producto producto) {
+		if (this.tiempoDisponible < producto.getDuracion()) {
+			System.out.println("no hay tiempo suficiente");
+		} else {
+			this.tiempoDisponible -= producto.getDuracion();
+		}
+
 	}
 
 	public void descontarDinero(Producto producto) {

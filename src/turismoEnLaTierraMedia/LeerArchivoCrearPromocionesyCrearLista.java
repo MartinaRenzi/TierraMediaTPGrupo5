@@ -45,7 +45,7 @@ public class LeerArchivoCrearPromocionesyCrearLista {
 		return promociones;
 	}
 
-	public static Promocion crearPromocion(String linea, List<Atraccion> atracciones) throws Exception {
+	public static Promocion crearPromocion(String linea, List<Atraccion> atracciones) throws PromocionInvalida {
 		String datos[] = linea.split(",");
 		String tipoDePromocion = datos[1];
 		if (tipoDePromocion.equals("Absoluta")) {
@@ -55,7 +55,7 @@ public class LeerArchivoCrearPromocionesyCrearLista {
 		} else if (tipoDePromocion.equals("AXB")) {
 			return crearAXB(linea, atracciones);
 		} else
-			throw new Exception("Tipo de promoci�n inv�lido");
+			throw new PromocionInvalida("Tipo de promocion invalido");
 
 	}
 

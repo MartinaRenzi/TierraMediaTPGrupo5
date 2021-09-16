@@ -4,24 +4,21 @@ import java.util.LinkedList;
 
 public class PromocionPorcentual extends Promocion {
 
-    private double descuento;
-    private double costoSinDescuento;
+	private double descuento;
 
-    public PromocionPorcentual(String nombre, TipoDeAtraccion tipo, LinkedList<Atraccion> atracciones, double descuento) {
-        super(nombre, tipo, atracciones);
-        this.descuento = descuento;
-        this.aplicarDescuento();
-    }
+	public PromocionPorcentual(String nombre, TipoDeAtraccion tipo, LinkedList<Atraccion> atracciones,
+			double descuento) {
+		super(nombre, tipo, atracciones);
+		this.descuento = descuento;
+		this.calcularCostoConDescuento();
+	}
 
-    private void calcularCostoSinDescuento() {
-        for (Atraccion atraccion : atracciones) {
-            costoSinDescuento += atraccion.costo;
-        }
-    }
+	private void calcularCostoConDescuento() {
+		for (Atraccion atraccion : atracciones) {
+			this.costo += atraccion.costo;
+		}
+		this.costo -= this.costo * (this.descuento / 100);
 
-    private void aplicarDescuento() {
-        this.calcularCostoSinDescuento();
-        this.costo = this.costoSinDescuento - (this.costoSinDescuento * (this.descuento / 100));
-    }
+	}
 
 }

@@ -1,6 +1,5 @@
 package turismoEnLaTierraMedia;
 
-
 public abstract class Producto {
 
 	protected String nombre;
@@ -16,15 +15,15 @@ public abstract class Producto {
 		this.duracion = duracion;
 	}
 
+	public Producto() {
+
+	}
+
 	public abstract boolean contiene(Producto producto);
 
 	public abstract boolean hayCupo();
 
 	public abstract void descontarCupo() throws Exception;
-
-	public Producto() {
-
-	}
 
 	public String getNombre() {
 		return nombre;

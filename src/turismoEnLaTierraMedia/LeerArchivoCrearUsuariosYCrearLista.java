@@ -47,7 +47,7 @@ public class LeerArchivoCrearUsuariosYCrearLista {
 		return usuarios;
 	}
 
-	public static Usuario crearUsuario(String linea) throws Exception, ArrayIndexOutOfBoundsException {
+	public static Usuario crearUsuario(String linea) throws ParametrosInvalidos, ArrayIndexOutOfBoundsException {
 		String datos[] = linea.split(",");
 		Usuario usuario = null;
 		String nombre = null;
@@ -55,9 +55,9 @@ public class LeerArchivoCrearUsuariosYCrearLista {
 		double tiempoDisponible = 0;
 		TipoDeAtraccion preferencia = null;
 		if (datos.length < 4) {
-			throw new ArrayIndexOutOfBoundsException("faltan par�metros");
+			throw new ArrayIndexOutOfBoundsException("Faltan parametros");
 		} else if (datos.length > 4) {
-			throw new ArrayIndexOutOfBoundsException("sobran par�metros");
+			throw new ArrayIndexOutOfBoundsException("Sobran parametros");
 
 		}
 
@@ -70,7 +70,7 @@ public class LeerArchivoCrearUsuariosYCrearLista {
 			usuario = new Usuario(nombre, presupuesto, tiempoDisponible, preferencia);
 
 		} catch (Exception e) {
-			throw new Exception("Par�metro inv�lido");
+			throw new ParametrosInvalidos("Parametro invalido");
 
 		}
 		return usuario;

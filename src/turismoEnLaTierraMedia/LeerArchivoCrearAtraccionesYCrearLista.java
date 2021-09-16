@@ -44,7 +44,7 @@ public class LeerArchivoCrearAtraccionesYCrearLista {
 		return atracciones;
 	}
 
-	public static Atraccion crearAtraccion(String linea) throws Exception {
+	public static Atraccion crearAtraccion(String linea) throws ParametrosInvalidos {
 		String datos[] = linea.split(",");
 		Atraccion atraccion = null;
 		String nombre = null;
@@ -54,9 +54,9 @@ public class LeerArchivoCrearAtraccionesYCrearLista {
 		int cupo = 0;
 
 		if (datos.length < 5) {
-			throw new ArrayIndexOutOfBoundsException("faltan par�metros");
+			throw new ArrayIndexOutOfBoundsException("Faltan parametros");
 		} else if (datos.length > 5) {
-			throw new ArrayIndexOutOfBoundsException("sobran par�metros");
+			throw new ArrayIndexOutOfBoundsException("Sobran parametros");
 
 		}
 		try {
@@ -69,7 +69,7 @@ public class LeerArchivoCrearAtraccionesYCrearLista {
 			atraccion = new Atraccion(nombre, costo, duracion, tipo, cupo);
 
 		} catch (Exception e) {
-			throw new Exception("Par�metro inv�lido");
+			throw new ParametrosInvalidos("Parametro invalido");
 
 		}
 		return atraccion;
