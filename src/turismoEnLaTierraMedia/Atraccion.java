@@ -13,10 +13,6 @@ public class Atraccion extends Producto {
 		return (this.cupo > 0);
 	}
 
-	public double getDuracion() {
-		return duracion;
-	}
-
 	public void descontarCupo() {
 		if (this.cupo <= 0) {
 			System.out.println("no hay cupos disponibles");

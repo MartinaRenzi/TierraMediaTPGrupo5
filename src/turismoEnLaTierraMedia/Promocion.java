@@ -32,7 +32,7 @@ public abstract class Promocion extends Producto {
 		return contiene;
 	}
 
-	private void calcularDuracion() {
+	public void calcularDuracion() {
 		for (Atraccion atraccion : atracciones) {
 			this.duracion += atraccion.duracion;
 		}
@@ -52,22 +52,6 @@ public abstract class Promocion extends Producto {
 		for (Atraccion atraccion : atracciones) {
 			atraccion.descontarCupo();
 		}
-	}
-
-	@Override
-	public double getCosto() {
-		double costoTotal = 0;
-		for (Atraccion atraccion : atracciones)
-			costoTotal = +atraccion.getCosto();
-		return costoTotal;
-	}
-
-	@Override
-	public double getDuracion() {
-		double duracionTotal = 0;
-		for (Atraccion atraccion : this.atracciones)
-			duracionTotal = +atraccion.getDuracion();
-		return duracionTotal;
 	}
 
 	@Override
