@@ -1,10 +1,13 @@
 package turismoEnLaTierraMedia;
 
+import java.util.LinkedList;
+
 public class Usuario {
 	private String nombre;
 	private double presupuesto;
 	private double tiempoDisponible;
 	private TipoDeAtraccion preferencia;
+	protected LinkedList<Producto> miItinerario;
 
 	public Usuario(String nombre, double presupuesto, double tiempoDisponible, TipoDeAtraccion preferencia) {
 		this.nombre = nombre;
@@ -15,6 +18,10 @@ public class Usuario {
 
 	public TipoDeAtraccion getPreferencia() {
 		return this.preferencia;
+	}
+
+	public LinkedList<Producto> getMiItinerario() {
+		return miItinerario;
 	}
 
 	public String getNombre() {
