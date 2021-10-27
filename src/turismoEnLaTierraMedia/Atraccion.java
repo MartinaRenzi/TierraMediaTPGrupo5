@@ -3,14 +3,20 @@ package turismoEnLaTierraMedia;
 public class Atraccion extends Producto {
 
 	private int cupo;
+	private int id;
 
-	public Atraccion(String nombre, double costo, double duracion, TipoDeAtraccion tipo, int cupo) {
+	public Atraccion(String nombre, double costo, double duracion, TipoDeAtraccion tipo, int cupo, int id) {
 		super(nombre, costo, duracion, tipo);
 		this.cupo = cupo;
+		this.id = id;
 	}
 
 	public boolean hayCupo() {
-		return (this.cupo > 0);
+		return (this.getCupo() > 0);
+	}
+	
+	public int getCupo() {
+		return cupo;
 	}
 
 	public void descontarCupo() {
@@ -19,6 +25,10 @@ public class Atraccion extends Producto {
 		} else {
 			this.cupo -= 1;
 		}
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	@Override

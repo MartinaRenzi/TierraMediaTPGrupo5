@@ -1,12 +1,14 @@
 package turismoEnLaTierraMedia;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+
+import dao.AtraccionDAO;
+import dao.DAOFactory;
+import dao.PromocionDAOImpl;
+import dao.UsuarioDAO;
 
 public class Parque {
 
@@ -14,22 +16,28 @@ public class Parque {
 	private static List<Producto> productos = new LinkedList<Producto>();
 
 	public Parque() throws Exception {
-		this.leerArchivos();
+		this.crearListas();
 	}
 
-	private void leerArchivos() throws Exception {
-		usuarios = LeerArchivoCrearUsuariosYCrearLista.getUsuarios("archivos/usuarios.csv");
+	private void crearListas() throws Exception {
+		UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
+		usuarios = usuarioDAO.getAll();
 
-		List<Atraccion> atracciones = LeerArchivoCrearAtraccionesYCrearLista.getAtracciones("archivos/atracciones.csv");
-		List<Promocion> promociones = LeerArchivoCrearPromocionesyCrearLista.getPromociones("archivos/promociones.csv",
-				atracciones);
+		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
+		List<Atraccion> atracciones = atraccionDAO.getAll();
+
+		PromocionDAOImpl promocionDAO = new PromocionDAOImpl();
+		List<Promocion> promociones = promocionDAO.getAllPromo(atracciones);
+
 		productos.addAll(atracciones);
-
 		productos.addAll(promociones);
 
 	}
 
 	public void ofrecerProductos() throws Exception {
+		UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
+		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
+		PromocionDAOImpl promocionDAO = new PromocionDAOImpl();
 		for (Usuario usuario : usuarios) {
 			productos.sort(new ProductosPorPreferencia(usuario.getPreferencia()));
 			System.out.println("¡Hola " + usuario.getNombre() + "! Tienes " + usuario.getPresupuesto() + " monedas, "
@@ -64,38 +72,27 @@ public class Parque {
 						usuario.descontarDinero(oferta);
 						usuario.descontarTiempo(oferta);
 						oferta.descontarCupo();
+						if (oferta.esPromo() == false) {
+							Atraccion ofertaAtraccion = (Atraccion) oferta;
+							atraccionDAO.update(ofertaAtraccion);
+
+						} else if (oferta.esPromo()) {
+							Promocion ofertaPromo = (Promocion) oferta;
+							promocionDAO.update(ofertaPromo);
+						}
 						System.out.println("Ya has reservado: " + usuario.miItinerario);
 
 					}
-					
+
 				}
 
 			}
 			System.out.println(usuario.miItinerario);
-			this.CrearArchivodeSalida(usuario, usuario.miItinerario);
+			usuarioDAO.update(usuario);
+			usuarioDAO.insertarItinerario(usuario, usuario.miItinerario);
 
 		}
 
-	}
-
-	private void CrearArchivodeSalida(Usuario usuario, List<Producto> itinerario) throws IOException {
-
-		PrintWriter salida = new PrintWriter(new FileWriter("archivos de salida/compraDe" + usuario.getNombre() + ".txt"));
-		salida.println(this.getResumenDeCompra(usuario, itinerario));
-		salida.close();
-	}
-
-	private String getResumenDeCompra(Usuario usuario, List<Producto> itinerario) {
-		int totalAPagar = 0;
-		double tiempoAInvertir = 0;
-		String productosResumidos = "";
-		for (Producto producto : itinerario) {
-			totalAPagar += producto.getCosto();
-			tiempoAInvertir += producto.getDuracion();
-			productosResumidos += (" [" + producto.getNombre() + "]");
-		}
-		return "Nombre: " + usuario.getNombre() + "\n" + "Ha comprado:" + productosResumidos + "\n" + "Total a pagar: "
-				+ totalAPagar + " monedas \n" + "Tiempo a invertir: " + tiempoAInvertir + " horas de diversion \n";
 	}
 
 }

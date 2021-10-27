@@ -7,10 +7,11 @@ public class PromocionPorcentual extends Promocion {
 	private double descuento;
 
 	public PromocionPorcentual(String nombre, TipoDeAtraccion tipo, LinkedList<Atraccion> atracciones,
-			double descuento) {
+			double descuento, int id) {
 		super(nombre, tipo, atracciones);
 		this.descuento = descuento;
 		this.calcularCostoConDescuento();
+		this.id= id;
 	}
 
 	private void calcularCostoConDescuento() {

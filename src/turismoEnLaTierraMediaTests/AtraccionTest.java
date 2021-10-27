@@ -21,14 +21,14 @@ public class AtraccionTest {
 
 	@Before
 	public void crear() {
-		Gandalf = new Usuario("Gandalf", 100, 5, TipoDeAtraccion.PAISAJE);
+		Gandalf = new Usuario("Gandalf", 100, 5, TipoDeAtraccion.PAISAJE, 1);
 		
-		Erebor = new Atraccion("Erebor", 12, 3, TipoDeAtraccion.PAISAJE, 32);
+		Erebor = new Atraccion("Erebor", 12, 3, TipoDeAtraccion.PAISAJE, 32, 5);
 
 		listaAtraccion = new LinkedList<Atraccion>();
 		listaAtraccion.add(Erebor);
 		
-		promo = new PromocionPorcentual("Promo", TipoDeAtraccion.PAISAJE, listaAtraccion, 20);
+		promo = new PromocionPorcentual("Promo", TipoDeAtraccion.PAISAJE, listaAtraccion, 20, 2);
 
 	}
 	

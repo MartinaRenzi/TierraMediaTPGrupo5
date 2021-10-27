@@ -6,11 +6,12 @@ public class PromocionAXB extends Promocion {
 	private Atraccion atraccionBonificada;
 
 	public PromocionAXB(String nombre, TipoDeAtraccion tipo, LinkedList<Atraccion> atracciones,
-			Atraccion atraccionBonificada) {
+			Atraccion atraccionBonificada, int id) {
 		super(nombre, tipo, atracciones);
 		this.atraccionBonificada = atraccionBonificada;
 		this.calcularCosto();
 		this.duracion += atraccionBonificada.duracion;
+		this.id = id;
 	}
 
 	@Override
@@ -18,6 +19,7 @@ public class PromocionAXB extends Promocion {
 
 		return super.contiene(prod) || this.atraccionBonificada.contiene(prod);
 	}
+	
 
 	@Override
 	public boolean hayCupo() {
@@ -29,6 +31,13 @@ public class PromocionAXB extends Promocion {
 		super.descontarCupo();
 
 		atraccionBonificada.descontarCupo();
+	}
+	
+	@Override
+	public LinkedList<Atraccion> getAtracciones() {
+		LinkedList<Atraccion> atraccionesEnAXB = super.getAtracciones();
+		atraccionesEnAXB.add(atraccionBonificada);
+		return atraccionesEnAXB;
 	}
 
 	private void calcularCosto() {

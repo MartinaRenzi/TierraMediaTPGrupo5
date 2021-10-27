@@ -8,12 +8,15 @@ public class Usuario {
 	private double tiempoDisponible;
 	private TipoDeAtraccion preferencia;
 	protected LinkedList<Producto> miItinerario;
+	private int id;
 
-	public Usuario(String nombre, double presupuesto, double tiempoDisponible, TipoDeAtraccion preferencia) {
+
+	public Usuario(String nombre, double presupuesto, double tiempoDisponible, TipoDeAtraccion preferencia, int id) {
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
+		this.id = id;
 	}
 
 	public TipoDeAtraccion getPreferencia() {
@@ -23,6 +26,11 @@ public class Usuario {
 	public LinkedList<Producto> getMiItinerario() {
 		return miItinerario;
 	}
+	
+	public int getId() {
+		return id;
+	}
+
 
 	public String getNombre() {
 		return nombre;
