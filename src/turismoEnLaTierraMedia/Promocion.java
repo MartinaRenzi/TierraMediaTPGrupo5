@@ -2,7 +2,6 @@ package turismoEnLaTierraMedia;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
 public abstract class Promocion extends Producto {
 	LinkedList<Atraccion> atracciones;

@@ -7,7 +7,8 @@ public class Usuario {
 	private double presupuesto;
 	private double tiempoDisponible;
 	private TipoDeAtraccion preferencia;
-	protected LinkedList<Producto> miItinerario;
+	public LinkedList<Producto> miItinerario = new LinkedList<Producto>();
+;
 	private int id;
 
 

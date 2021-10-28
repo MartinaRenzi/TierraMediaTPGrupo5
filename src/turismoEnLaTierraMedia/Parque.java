@@ -20,8 +20,6 @@ public class Parque {
 	}
 
 	private void crearListas() throws Exception {
-		UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
-		usuarios = usuarioDAO.getAll();
 
 		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
 		List<Atraccion> atracciones = atraccionDAO.getAll();
@@ -31,6 +29,9 @@ public class Parque {
 
 		productos.addAll(atracciones);
 		productos.addAll(promociones);
+
+		UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
+		usuarios = usuarioDAO.getAll(productos);
 
 	}
 
@@ -44,7 +45,7 @@ public class Parque {
 					+ usuario.getTiempoDisponible() + " horas disponibles y siempre prefieres "
 					+ usuario.getPreferencia() + ".\n¡Reserva tus paseos!\n");
 
-			usuario.miItinerario = new LinkedList<Producto>();
+			//usuario.miItinerario = new LinkedList<Producto>();
 			char respuesta;
 
 			for (Producto oferta : productos) {

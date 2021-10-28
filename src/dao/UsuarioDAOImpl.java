@@ -17,7 +17,7 @@ import turismoEnLaTierraMedia.Usuario;
 public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Override
-	public List<Usuario> getAll() {
+	public List<Usuario> getAll(List<Producto> productos) {
 		try {
 			String sql = "SELECT * FROM usuarios";
 			Connection connection = ConnectionBBDD.getConnection();
@@ -28,7 +28,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			LinkedList<Usuario> usuarios = new LinkedList<Usuario>();
 
 			while (resultado.next()) {
-				usuarios.add(toUsuario(resultado));
+				usuarios.add(toUsuario(resultado, productos));
 			}
 
 			return usuarios;
@@ -37,13 +37,52 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 
-	private Usuario toUsuario(ResultSet resultado) {
+	private Usuario toUsuario(ResultSet resultado, List<Producto> productos) {
 		try {
-			return new Usuario(resultado.getString(2), resultado.getInt(3), resultado.getInt(4),
+			Usuario usuario = new Usuario(resultado.getString(2), resultado.getInt(3), resultado.getInt(4),
 					TipoDeAtraccion.valueOf(resultado.getString(5)), resultado.getInt(1));
+			agregarProductosYaComprados(usuario, productos);
+			return usuario;
 		} catch (SQLException e) {
 			throw new MissingDataException(e);
 		}
+	}
+
+	private static void agregarProductosYaComprados(Usuario usuario, List<Producto> productos) {
+		try {
+			String sql = "SELECT atracciones.nombre\r\n"
+					+ "from itinerarios\r\n"
+					+ "left join usuarios on usuarios.id = itinerarios.usuario_id\r\n"
+					+ "left JOIN atracciones on atracciones.id = itinerarios.atraccion_id\r\n"
+					+ "WHERE itinerarios.usuario_id = " + usuario.getId() + " AND atracciones.nombre is not NULL\r\n"
+					+ "UNION\r\n"
+					+ "SELECT promociones.nombre\r\n"
+					+ "from itinerarios\r\n"
+					+ "left join usuarios on usuarios.id = itinerarios.usuario_id\r\n"
+					+ "left join promociones on promociones.id = itinerarios.promocion_id\r\n"
+					+ "WHERE itinerarios.usuario_id = " + usuario.getId() + " AND promociones.nombre is not NULL";
+			Connection connection = ConnectionBBDD.getConnection();
+
+			PreparedStatement statement = connection.prepareStatement(sql);
+			ResultSet resultado = statement.executeQuery();
+
+			while (resultado.next()) {
+				usuario.miItinerario.add(obtenerProductoPorNombre(resultado.getString(1), productos));
+				
+			}
+
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+
+	private static Producto obtenerProductoPorNombre(String nombre, List<Producto> productos) {
+		for (Producto producto : productos) {
+			if (producto.getNombre().equals(nombre)) {
+				return producto;
+			}
+		}
+		return null;
 	}
 
 	@Override
@@ -98,7 +137,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 
 	}
-	
+
 	private void insertarPromocion(Usuario usuario, Promocion promocion) {
 		try {
 			String sql = "INSERT INTO itinerarios('usuario_id', 'promocion_id') VALUES (?, ?)";
@@ -112,5 +151,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			throw new MissingDataException(e);
 		}
 
+	}
+
+	@Override
+	public List<Usuario> getAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
