@@ -1,20 +1,20 @@
 package turismoEnLaTierraMediaTests;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import dao.AtraccionDAO;
 import dao.DAOFactory;
-import dao.GenericDAO;
+import dao.PromocionDAO;
 import dao.UsuarioDAO;
 import dao.UsuarioDAOImpl;
-
 import turismoEnLaTierraMedia.Atraccion;
+import turismoEnLaTierraMedia.Producto;
 import turismoEnLaTierraMedia.TipoDeAtraccion;
 import turismoEnLaTierraMedia.Usuario;
 
@@ -24,6 +24,8 @@ public class UserTests {
 	Usuario Eowyn, Gandalf;
 	int nuevoPresupuesto = 200;
 	double nuevoTiempo = 8;
+	List<Producto> productos;
+	
 
 	@Before
 	public void crear() {
@@ -58,8 +60,14 @@ public class UserTests {
 	
 //	@Test
 //	public void getUsuarios() {
-//		UsuarioDAOImpl usuario = new UsuarioDAOImpl();
-//		assertTrue(usuario.getAll().size() > 1);
+//		UsuarioDAO usuarioDao = new UsuarioDAOImpl;
+//		List<Usuario> listaUsuario = usuarioDao.getAll(productos);
+	//
+//		assertEquals("Eowyn", listaUsuario.get(0).getNombre());
+		
+//		for(Usuario user : listaUsuario) {
+//			System.out.println(user.getNombre());
+//		}
 //	}
 //	
 //	@Test
@@ -67,7 +75,6 @@ public class UserTests {
 //	UsuarioDAOImpl usuario = new UsuarioDAOImpl();
 //	assertNotNull(usuario.getAll());
 //}
-	
 	///Recibe como parametro una lista de productos getAll
 	
 	@Test 
