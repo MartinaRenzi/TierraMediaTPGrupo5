@@ -1,18 +1,22 @@
 package turismoEnLaTierraMediaTests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
+import java.sql.SQLException;
 import java.util.LinkedList;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import dao.AtraccionDAOImpl;
 import turismoEnLaTierraMedia.Atraccion;
 import turismoEnLaTierraMedia.PromocionPorcentual;
 import turismoEnLaTierraMedia.TipoDeAtraccion;
 import turismoEnLaTierraMedia.Usuario;
 
-public class AtraccionTest {
+public class AtraccionTests {
 	
 	LinkedList<Atraccion> listaAtraccion;
 	Atraccion Erebor;
@@ -37,5 +41,18 @@ public class AtraccionTest {
 		Boolean cupoEsperado = true;
 		assertEquals(cupoEsperado, promo.hayCupo());
 	}
-
+	
+	@Test
+	public void getAtracciones() {
+		AtraccionDAOImpl atraccion = new AtraccionDAOImpl();
+		assertTrue(atraccion.getAll().size() == 8);
+	}
+	
+	@Test
+	public void atraccionesNotNull() {
+		AtraccionDAOImpl atraccion = new AtraccionDAOImpl();
+		assertNotNull(atraccion.getAll());
+	}
+	
+	
 }
