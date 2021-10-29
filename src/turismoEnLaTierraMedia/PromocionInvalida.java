@@ -1,8 +1,10 @@
 package turismoEnLaTierraMedia;
 
 public class PromocionInvalida extends Exception {
-	
-	    public PromocionInvalida(String message) {
+
+	private static final long serialVersionUID = 1L;
+
+		public PromocionInvalida(String message) {
 	        super(message);
 	    }
 

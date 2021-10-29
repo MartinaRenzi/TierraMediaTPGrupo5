@@ -7,11 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.sql.Connection;
 import turismoEnLaTierraMedia.TipoDeAtraccion;
-import turismoEnLaTierraMedia.Usuario;
 import jdbc.ConnectionBBDD;
 import turismoEnLaTierraMedia.Atraccion;
-import turismoEnLaTierraMedia.Producto;
-import turismoEnLaTierraMedia.Promocion;
 
 public class AtraccionDAOImpl implements AtraccionDAO {
 

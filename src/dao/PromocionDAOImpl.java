@@ -55,7 +55,11 @@ public class PromocionDAOImpl implements PromocionDAO {
 
 	private static LinkedList<Atraccion> atraccionesQueIncluye(String nombrePromo, List<Atraccion> atracciones) {
 		try {
-			String sql = "SELECT atraccion_nombre FROM atracciones_promociones WHERE promocion_nombre = '" + nombrePromo
+			String sql = "SELECT atracciones.nombre\r\n"
+					+ "FROM atracciones\r\n"
+					+ "JOIN atracciones_promociones on atracciones_promociones.atraccion_id=atracciones.id\r\n"
+					+ "JOIN promociones on promociones.id = atracciones_promociones.promocion_id\r\n"
+					+ "WHERE promociones.nombre ='"+ nombrePromo
 					+ "'";
 			Connection connection = ConnectionBBDD.getConnection();
 

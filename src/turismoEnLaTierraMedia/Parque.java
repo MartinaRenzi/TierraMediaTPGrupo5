@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-
 import dao.AtraccionDAO;
 import dao.DAOFactory;
 import dao.PromocionDAOImpl;
@@ -41,11 +40,10 @@ public class Parque {
 		PromocionDAOImpl promocionDAO = new PromocionDAOImpl();
 		for (Usuario usuario : usuarios) {
 			productos.sort(new ProductosPorPreferencia(usuario.getPreferencia()));
-			System.out.println("¡Hola " + usuario.getNombre() + "! Tienes " + usuario.getPresupuesto() + " monedas, "
+			System.out.println("Â¡Hola " + usuario.getNombre() + "! Tienes " + usuario.getPresupuesto() + " monedas, "
 					+ usuario.getTiempoDisponible() + " horas disponibles y siempre prefieres "
-					+ usuario.getPreferencia() + ".\n¡Reserva tus paseos!\n");
+					+ usuario.getPreferencia() + ".\nÂ¡Reserva tus paseos!\n");
 
-			//usuario.miItinerario = new LinkedList<Producto>();
 			char respuesta;
 
 			for (Producto oferta : productos) {
