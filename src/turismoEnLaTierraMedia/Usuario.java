@@ -7,9 +7,16 @@ public class Usuario {
 	private double presupuesto;
 	private double tiempoDisponible;
 	private TipoDeAtraccion preferencia;
-	public LinkedList<Producto> miItinerario = new LinkedList<Producto>();
+	private LinkedList<Producto> miItinerario = new LinkedList<Producto>();
 ;
 	private int id;
+	private int cantProductoYaComprados;
+
+
+	public int getCantProductoYaComprados() {
+		return cantProductoYaComprados;
+	}
+
 
 
 	public Usuario(String nombre, double presupuesto, double tiempoDisponible, TipoDeAtraccion preferencia, int id) {
@@ -19,7 +26,15 @@ public class Usuario {
 		this.preferencia = preferencia;
 		this.id = id;
 	}
+	
+	public void addProductoComprado(Producto producto) {
+		this.miItinerario.add(producto);
+	}
 
+	public void addProducto(Producto producto) {
+		this.miItinerario.add(producto);
+		this.cantProductoYaComprados++;
+	}
 	public TipoDeAtraccion getPreferencia() {
 		return this.preferencia;
 	}

@@ -67,7 +67,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			ResultSet resultado = statement.executeQuery();
 
 			while (resultado.next()) {
-				usuario.miItinerario.add(obtenerProductoPorNombre(resultado.getString(1), productos));
+				usuario.addProducto(obtenerProductoPorNombre(resultado.getString(1), productos));
 				
 			}
 
@@ -106,12 +106,13 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public void insertarItinerario(Usuario usuario, LinkedList<Producto> productos) {
 		try {
-			for (Producto producto : productos) {
-				if (producto.esPromo() == false) {
+			for (int i= usuario.getCantProductoYaComprados(); i< usuario.getMiItinerario().size(); i++) {
+				Producto producto = usuario.getMiItinerario().get(i);
+				if (!producto.esPromo()) {
 					Atraccion atraccion = (Atraccion) producto;
 					insertarAtraccion(usuario, atraccion);
 
-				} else if (producto.esPromo()) {
+				} else  {
 					Promocion promocion = (Promocion) producto;
 					insertarPromocion(usuario, promocion);
 				}

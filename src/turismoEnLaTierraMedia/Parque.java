@@ -48,7 +48,7 @@ public class Parque {
 
 			for (Producto oferta : productos) {
 				boolean contiene = false;
-				Iterator<Producto> itr = usuario.miItinerario.iterator();
+				Iterator<Producto> itr = usuario.getMiItinerario().iterator();
 				while (!contiene && itr.hasNext()) {
 					contiene = oferta.contiene(itr.next());
 				}
@@ -67,7 +67,7 @@ public class Parque {
 
 					}
 					if (respuesta == 's') {
-						usuario.miItinerario.add(oferta);
+						usuario.addProductoComprado(oferta);
 						usuario.descontarDinero(oferta);
 						usuario.descontarTiempo(oferta);
 						oferta.descontarCupo();
@@ -79,16 +79,16 @@ public class Parque {
 							Promocion ofertaPromo = (Promocion) oferta;
 							promocionDAO.update(ofertaPromo);
 						}
-						System.out.println("Ya has reservado: " + usuario.miItinerario);
+						System.out.println("Ya has reservado: " + usuario.getMiItinerario());
 
 					}
 
 				}
 
 			}
-			System.out.println(usuario.miItinerario);
+			System.out.println(usuario.getMiItinerario());
 			usuarioDAO.update(usuario);
-			usuarioDAO.insertarItinerario(usuario, usuario.miItinerario);
+			usuarioDAO.insertarItinerario(usuario, usuario.getMiItinerario());
 
 		}
 
