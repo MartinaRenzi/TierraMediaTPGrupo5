@@ -3,6 +3,7 @@
   <groupId>Turismo_en_la_Tierra_Media</groupId>
   <artifactId>Turismo_en_la_Tierra_Media</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -24,4 +25,7 @@
 </dependency>
   
   </dependencies>
+  <modules>
+  	<module>webapp</module>
+  </modules>
 </project>
