@@ -1,21 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Normalize CSS -->
-    <link
-      rel="stylesheet"
-      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
-    />
-    <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="../webapp/assets/styles/desktop.css" />
-    <!-- JAM icons -->
-    <link rel="stylesheet" href="https://unpkg.com/jam-icons/css/jam.min.css" />
-    <title>Tierra Media - Login</title>
+	<jsp:include page="partials/head.jsp"></jsp:include>
   </head>
   <body>
     <div class="content-wrapper main">

@@ -297,7 +297,7 @@ header {
 .banner-section {
   height: calc(100vh - var(--header-height) - var(--header-height));
   background-color: #121f26;
-  background-image: url(../img/background.jpg);
+  background-image: url(../images/background.jpg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -389,7 +389,7 @@ header {
 .attraction-section {
   height: 400px;
   background-color: #121f26;
-  background-image: url(../img/attraction.jpg);
+  background-image: url(../images/attraction.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
