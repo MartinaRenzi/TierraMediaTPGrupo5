@@ -1,0 +1,545 @@
+/* ----- ESTILOS BASE ----- */
+/* Importación de fuentes desde Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap");
+
+:root {
+  /* Colores */
+  --title-color: #121f26;
+  --text-color: #676f73;
+  --white-color: #ffffff;
+  --dust-color: #b6886a;
+  --bone-color: #e5dad0;
+  --cinnamon-color: #b29a89;
+  --gray-color: #504f4c;
+  --green-color: #a9b4a4;
+
+  /* Fuentes */
+  --body-font: "Montserrat", sans-serif;
+
+  /* Anchura máxima del contenido en desktop */
+  --max-width: 1200px;
+
+  /* Tamaños */
+  --header-height: 3rem;
+  --section-spacing: 4rem;
+  --block-spacing: 2rem;
+  --body-line-height: 1.6;
+  --title-line-height: 1.3;
+
+  /* Tamaños de fuentes */
+  --h1-font-size: 2rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.25rem;
+  --h4-font-size: 1rem;
+  --big-font-size: 1rem;
+  --normal-font-size: 0.875rem;
+  --small-font-size: 0.75rem;
+  --smaller-font-size: 0.6875rem;
+}
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  min-height: calc(100vh - var(--header-height));
+  min-width: 320px;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  line-height: var(--body-line-height);
+  color: var(--gray-color);
+  background-color: var(--cinnamon-color);
+}
+
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 0;
+  line-height: var(--title-line-height);
+  font-weight: 800;
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+}
+
+.main h1 {
+  margin-bottom: var(--block-spacing);
+  padding-top: var(--block-spacing);
+}
+
+.content-wrapper {
+  width: calc(100% - 2rem);
+  max-width: var(--max-width);
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.section-container {
+  margin-bottom: var(--section-spacing);
+}
+
+.section-container h1,
+.section-container h2 {
+  text-align: center;
+}
+
+/* Botones */
+.button {
+  display: inline-block;
+  padding: 0.75rem 2.5rem;
+  text-decoration: none;
+  color: var(--gray-color);
+  background-color: var(--green-color);
+  border: 1px solid var(--green-color);
+  border-radius: 10rem;
+}
+
+.content-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ------------------------------ LOGIN ------------------------------ */
+
+.header h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--bone-color);
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.image-container {
+  display: none;
+}
+
+.login-container {
+  display: flex;
+  flex-flow: wrap-reverse;
+  justify-content: center;
+  padding: 4em;
+  height: 450px;
+  background-color: var(--bone-color);
+  border-radius: 5px;
+  box-shadow: 0px 0px 30px 1px;
+}
+
+.login-buttons-top {
+  width: 100%;
+  text-align: center;
+  order: 1;
+}
+
+.button-left {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: var(--small-font-size);
+  color: var(--gray-color);
+  text-decoration: none;
+  border: 1px solid var(--green-color);
+  border-radius: 5rem 0 0 5rem;
+}
+
+.button-right {
+  display: inline-block;
+  margin-left: -4px;
+  padding: 0.5rem 1rem;
+  font-size: var(--small-font-size);
+  color: var(--title-color);
+  text-decoration: none;
+  background-color: var(--green-color);
+  border: 1px solid var(--green-color);
+  border-radius: 0 5rem 5rem 0;
+}
+
+.button-left:hover {
+  background-color: #c5cfbf;
+  transition-duration: 0.3s;
+}
+
+.button-right:hover {
+  background-color: #c5cfbf;
+  color: var(--white-color);
+  transition-duration: 0.3s;
+}
+
+.login-content {
+  text-align: center;
+  width: 100%;
+}
+
+.login-input h2 {
+  text-align: center;
+  font-weight: 400;
+  color: var(--title-color);
+  text-transform: uppercase;
+  padding-top: 2em;
+}
+
+.login-input input {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 4em;
+  background-color: var(--bone-color);
+  border: 0;
+  border-bottom: 0.5px solid var(--gray-color);
+}
+
+.login-input input:focus-visible {
+  border: 0;
+  border-bottom: 0.5px solid var(--gray-color);
+  outline: 0;
+  opacity: 0.8;
+  transition-duration: 0.3s;
+}
+
+.login-checkbox {
+  display: none;
+}
+
+.login-buttons-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-buttons-bottom .button {
+  margin-bottom: 1em;
+}
+
+.login-buttons-bottom .button:hover {
+  transition-duration: 0.3s;
+  box-shadow: 0 0 3px 0.1px;
+}
+
+.login-buttons-bottom .member {
+  text-decoration: none;
+  color: var(--gray-color);
+}
+
+.login-buttons-bottom .member:hover {
+  border-bottom: 1px solid var(--green-color);
+  transition-duration: 0.1s;
+}
+
+/* ------------------------- PANTALLA PRINCIPAL ------------------------- */
+/* Header */
+header {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--dust-color);
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-section h1 {
+  margin-bottom: 0;
+  font-size: var(--big-font-size);
+  font-weight: 400;
+  color: var(--bone-color);
+  text-transform: uppercase;
+}
+
+.header-section a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--bone-color);
+}
+
+/* Menu */
+.menu-section {
+  display: none;
+}
+
+/* Banner */
+.banner-section {
+  height: 100vh;
+  padding-top: var(--header-height);
+  background-color: #121f26;
+  background-image: url(../assets/img/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.blur {
+  height: 100%;
+  padding-top: var(--header-height);
+  backdrop-filter: blur(3px);
+  background-color: rgba(20, 20, 20, 0.75);
+}
+
+.banner-container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--bone-color);
+  text-transform: uppercase;
+}
+
+.banner-container h2 {
+  margin: 0;
+  font-weight: 400;
+}
+
+.banner-container span {
+  font-size: var(--h1-font-size);
+  cursor: pointer;
+}
+
+/* Spotlight */
+.spotlight-section {
+  height: auto;
+  padding-top: 3em;
+  background-color: var(--bone-color);
+}
+
+.spotlight-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spotlight-title h2 {
+  margin-bottom: 2em;
+  font-weight: 600;
+  color: var(--title-color);
+  text-transform: uppercase;
+}
+
+.card {
+  height: 350px;
+  max-width: 250px;
+  margin: 0 1.5em;
+  margin-bottom: 3em;
+  text-align: center;
+  background-color: var(--white-color);
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0.1px;
+}
+
+.image-content {
+  height: 175px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--green-color);
+}
+
+.image-content {
+  border-radius: 5px 5px 0 0;
+}
+
+.card-info {
+  padding: 1.5em;
+  text-align: start;
+}
+
+.card-info h3 {
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--title-color);
+}
+
+/* Attraction */
+.attraction-section {
+  height: 400px;
+  background-color: #121f26;
+  background-image: url(../assets/img/attraction.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.blur-attraction {
+  height: 400px;
+  backdrop-filter: blur(3px);
+  background-color: rgba(20, 20, 20, 0.75);
+}
+
+.attraction-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.attraction-container h2 {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--bone-color);
+}
+
+/* More to explore */
+.spotlight-alt {
+  height: auto;
+  background-color: var(--cinnamon-color);
+}
+
+/* Footer */
+.footer-section {
+  height: auto;
+  background-color: var(--gray-color);
+}
+
+.footer-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2em;
+  color: var(--bone-color);
+}
+
+.footer-title h2 {
+  margin: 0;
+  font-size: var(--big-font-size);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.footer-nav ul {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  list-style-type: none;
+}
+
+.footer-nav ul li {
+  margin-bottom: 1em;
+  font-size: var(--smaller-font-size);
+}
+
+/* ------------------------- ATRACCIONES ------------------------- */
+/* More to explore */
+.more-section {
+  height: auto;
+  padding: 6em 0;
+  background-color: var(--bone-color);
+}
+.card-container {
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(250px, auto);
+  gap: 40px;
+  grid-auto-flow: row;
+}
+
+.card-attraction {
+  margin: 0;
+}
+
+/* ------------------------- PRODUCTO ------------------------- */
+.product-section {
+  height: auto;
+  padding-top: var(--header-height);
+  text-align: center;
+  background-color: var(--bone-color);
+}
+
+.product-container {
+  display: flex;
+  justify-content: center;
+  padding: 2em 1em;
+}
+
+.product-image img {
+  width: 100%;
+  max-width: 350px;
+}
+
+.product-box {
+  max-width: 350px;
+}
+
+.product-description h1 {
+  padding-top: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.product-description p {
+  margin-bottom: 2em;
+}
+
+.product-description p:last-child {
+  display: none;
+}
+
+.product-buy h2 {
+  font-weight: 400;
+}
+
+.product-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-buttons a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--gray-color);
+  background-color: var(--green-color);
+}
+
+.button-1 {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5em;
+  padding: 0 1.5em;
+  font-size: var(--h4-font-size);
+  border-radius: 50px;
+}
+
+.button-2 {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  border-radius: 50px;
+}

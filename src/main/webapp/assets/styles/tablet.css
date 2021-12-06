@@ -1,0 +1,206 @@
+/* ------------------------------ LOGIN ------------------------------ */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 550px;
+  background-color: var(--dust-color);
+  box-shadow: 0px 0px 30px 1px;
+}
+
+.login-container {
+  padding: 4rem;
+  width: 500px;
+  height: 550px;
+}
+
+.login-input h2 {
+  padding-top: 0;
+}
+
+.login-input input {
+  padding-top: 1rem;
+}
+
+/* ------------------------- PANTALLA PRINCIPAL ------------------------- */
+/* Header */
+header {
+  position: inherit;
+}
+.header-section h1 {
+  font-size: var(--h2-font-size);
+}
+
+.header-section a {
+  font-size: 1.5rem;
+}
+
+/* Menu */
+.menu-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+  color: var(--bone-color);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--dust-color);
+}
+
+.menu-section nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-size: var(--normal-font-size);
+  list-style-type: none;
+}
+
+.menu-section nav ul li:first-child {
+  margin-right: 35px;
+}
+
+.menu-section nav ul li a {
+  color: var(--bone-color);
+}
+
+.buy-search {
+  display: flex;
+  align-items: center;
+}
+
+.buy-search a {
+  color: var(--bone-color);
+}
+
+.buy-search a:first-child {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5em;
+  font-size: var(--normal-font-size);
+  color: var(--bone-color);
+  text-decoration: none;
+  background-color: var(--gray-color);
+}
+
+.buy-search i {
+  margin-left: 55px;
+  font-size: 1.7rem;
+}
+
+/* Banner */
+.banner-section {
+  padding: 0;
+  height: calc(100vh - var(--header-height) - var(--header-height));
+}
+
+/* Spotlight */
+.spotlight-section {
+  height: 600px;
+  padding: 0;
+}
+
+.spotlight-content {
+  display: flex;
+}
+
+/* Attraction */
+.attraction-section {
+  background-size: 100%;
+}
+
+/* More to explore */
+.spotlight-alt {
+  height: 600px;
+}
+
+/* Footer */
+.footer-section {
+  height: 120px;
+}
+
+.footer-container {
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+}
+
+.footer-title h2 {
+  font-size: var(--h3-font-size);
+}
+
+.footer-nav ul {
+  flex-direction: row;
+  margin: 0;
+}
+
+.footer-nav ul li {
+  margin: 0;
+  margin-left: 1.5em;
+  font-size: var(--small-font-size);
+}
+
+.footer-nav ul li:first-child {
+  margin-left: 0;
+}
+
+/* ------------------------- ATRACCIONES ------------------------- */
+/* More to explore */
+.more-section {
+  height: auto;
+  padding: 6em 0;
+  background-color: var(--bone-color);
+}
+.card-container {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ------------------------- PRODUCTO ------------------------- */
+.product-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5em 0;
+  background-color: var(--cinnamon-color);
+}
+
+.product-container {
+  margin: 0;
+  padding: 0;
+  width: 80%;
+  max-width: 1200px;
+  height: 80%;
+  max-height: 600px;
+}
+.product-content {
+  height: max-content;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  background-color: var(--bone-color);
+  border-radius: 5px;
+}
+
+.product-image {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.product-box {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.product-description h1 {
+  padding: 0;
+}
+
+.product-description p {
+  margin: 0;
+  margin-bottom: 3em;
+}
