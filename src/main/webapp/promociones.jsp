@@ -34,7 +34,7 @@
             <div class="card-container">
               <div class="card card-attraction">
                 <div class="image-content">
-                  <img src="../webapp/assets/images/frodo.png" alt="image-example" />
+                  <img src="/torre/assets/img/frodo.png" alt="image-example" />
                 </div>
                 <div class="card-info">
                   <h3>title here</h3>
@@ -46,7 +46,7 @@
               </div>
               <div class="card card-attraction">
                 <div class="image-content">
-                  <img src="../webapp/assets/images/frodo.png" alt="image-example" />
+                  <img src="/torre/assets/img/frodo.png" alt="image-example" />
                 </div>
                 <div class="card-info">
                   <h3>title here</h3>
@@ -58,7 +58,7 @@
               </div>
               <div class="card card-attraction">
                 <div class="image-content">
-                  <img src="../webapp/assets/images/frodo.png" alt="image-example" />
+                  <img src="/torre/assets/img/frodo.png" alt="image-example" />
                 </div>
                 <div class="card-info">
                   <h3>title here</h3>
@@ -70,7 +70,7 @@
               </div>
               <div class="card card-attraction">
                 <div class="image-content">
-                  <img src="../webapp/assets/images/frodo.png" alt="image-example" />
+                  <img src="/torre/assets/img/frodo.png" alt="image-example" />
                 </div>
                 <div class="card-info">
                   <h3>title here</h3>
@@ -82,7 +82,7 @@
               </div>
               <div class="card card-attraction">
                 <div class="image-content">
-                  <img src="../webapp/assets/images/frodo.png" alt="image-example" />
+                  <img src="/torre/assets/img/frodo.png" alt="image-example" />
                 </div>
                 <div class="card-info">
                   <h3>title here</h3>
@@ -94,7 +94,7 @@
               </div>
               <div class="card card-attraction">
                 <div class="image-content">
-                  <img src="../webapp/assets/images/frodo.png" alt="image-example" />
+                  <img src="/torre/assets/img/frodo.png" alt="image-example" />
                 </div>
                 <div class="card-info">
                   <h3>title here</h3>
@@ -106,7 +106,7 @@
               </div>
               <div class="card card-attraction">
                 <div class="image-content">
-                  <img src="../webapp/assets/images/frodo.png" alt="image-example" />
+                  <img src="/torre/assets/img/frodo.png" alt="image-example" />
                 </div>
                 <div class="card-info">
                   <h3>title here</h3>
@@ -118,7 +118,7 @@
               </div>
               <div class="card card-attraction">
                 <div class="image-content">
-                  <img src="../webapp/assets/images/frodo.png" alt="image-example" />
+                  <img src="/torre/assets/img/frodo.png" alt="image-example" />
                 </div>
                 <div class="card-info">
                   <h3>title here</h3>

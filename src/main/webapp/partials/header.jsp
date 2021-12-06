@@ -1,6 +1,8 @@
+
+<!-- HEADER SECTION -->
 <header>
 	<div class="header-section content-wrapper">
-		<h1>tierra media</h1>
+		<h1><a href="index.jsp">tierra media</a></h1>
 		<a class="ri-user-line" href="#"></a>
 	</div>
 </header>
@@ -9,8 +11,8 @@
 <div class="menu-section content-wrapper">
 	<nav>
 		<ul>
-			<li>atracciones</li>
-			<li>promociones</li>
+			<li><a href="atracciones.jsp">atracciones</a></li>
+			<li><a href="promociones.jsp">promociones</a></li>
 		</ul>
 	</nav>
 	<div class="buy-search">
