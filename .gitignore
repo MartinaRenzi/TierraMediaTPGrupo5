@@ -1,3 +1,7 @@
 /target/
 env.properties
-TurismoenlaTierraMedia.db
+/turismoEnLaTierraMedia/
+.metadata
+/bin/
+/target/
+TurismoEnLaTierraMedia.db
