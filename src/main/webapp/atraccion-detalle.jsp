@@ -17,27 +17,23 @@
         <div class="product-container content-wrapper">
           <div class="product-content">
             <div class="product-image">
-              <img src="../webapp/assets/images/product.png" alt="imagen-producto" />
+              <img src="/torre/assets/img/product.png" alt="product" />
             </div>
-            <div class="product-info">
-              <div class="product-title">
+            <div class="product-box">
+              <div class="product-description">
                 <h1>attraction title</h1>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                  exercitationem ipsam sint excepturi, voluptate modi fugiat
-                  autem ut quos, quam deleniti cum corrupti reprehenderit eius
-                  pariatur magni? Porro, molestias voluptates. Officiis culpa
-                  unde a vero.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Voluptas modi assumenda numquam soluta pariatur necessitatibus
+                  cupiditate iure veritatis officia doloribus.
                 </p>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Excepturi, doloremque provident esse amet est veritatis totam
-                  expedita maxime pariatur doloribus rem unde laborum suscipit
-                  id eaque earum nostrum eius ad atque. Minima, nobis nisi
-                  quidem culpa repellat sit praesentium! Sunt?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                  dolorem cum enim totam sed facilis illum. Itaque voluptate
+                  nihil nisi!
                 </p>
               </div>
-              <div class="product-box">
+              <div class="product-buy">
                 <h2>$999.00</h2>
                 <div class="product-buttons">
                   <a href="#" class="button-1">buy now</a>
@@ -49,8 +45,6 @@
         </div>
       </section>
     </main>
-
-
     <!-- FOOTER -->
    <jsp:include page="partials/footer.jsp"></jsp:include>
 </body>

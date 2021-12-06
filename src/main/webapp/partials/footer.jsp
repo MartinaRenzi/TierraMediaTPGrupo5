@@ -1,3 +1,5 @@
+
+<!-- FOOTER -->
 <footer class="footer-section">
 	<div class="footer-container content-wrapper">
 		<div class="footer-title">
@@ -7,7 +9,7 @@
 			<nav>
 				<ul>
 					<li>inicio</li>
-					<li>promociones</li>
+					<li>destacados</li>
 					<li>atracciones</li>
 					<li>itinerario</li>
 				</ul>

@@ -1,5 +1,5 @@
 /* ----- ESTILOS BASE ----- */
-/* Importación de fuentes desde Google Fonts */
+/* ImportaciÃ³n de fuentes desde Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap");
 
 :root {
@@ -16,17 +16,17 @@
   /* Fuentes */
   --body-font: "Montserrat", sans-serif;
 
-  /* Anchura máxima del contenido en desktop */
+  /* Anchura mÃ¡xima del contenido en desktop */
   --max-width: 1200px;
 
-  /* Tamaños */
+  /* TamaÃ±os */
   --header-height: 3rem;
   --section-spacing: 4rem;
   --block-spacing: 2rem;
   --body-line-height: 1.6;
   --title-line-height: 1.3;
 
-  /* Tamaños de fuentes */
+  /* TamaÃ±os de fuentes */
   --h1-font-size: 2rem;
   --h2-font-size: 1.5rem;
   --h3-font-size: 1.25rem;
@@ -290,7 +290,7 @@ header {
   height: 100vh;
   padding-top: var(--header-height);
   background-color: #121f26;
-  background-image: url(../assets/img/background.jpg);
+  background-image: url(../img/background.jpg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -381,7 +381,7 @@ header {
 .attraction-section {
   height: 400px;
   background-color: #121f26;
-  background-image: url(../assets/img/attraction.jpg);
+  background-image: url(../img/attraction.jpg);
   background-repeat: no-repeat;
   background-position: center;
 }
