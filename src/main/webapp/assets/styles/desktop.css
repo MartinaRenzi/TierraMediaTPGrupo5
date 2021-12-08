@@ -52,13 +52,21 @@
 
 /* ------------------------- PANTALLA PRINCIPAL ------------------------- */
 /* Header */
-
-.header-section h1 {
-  font-size: var(--h1-font-size);
+nav .logo {
+  font-size: var(--h2-font-size);
 }
 
-.header-section a {
-  font-size: 1.7rem;
+.action .profile a {
+  font-size: 1.5rem;
+}
+
+/* Menu */
+.content .links li a {
+  font-size: var(--big-font-size);
+}
+
+.wrapper .search-icon {
+  font-size: 1.2rem;
 }
 
 /* Spotlight */
@@ -99,6 +107,9 @@
 }
 
 /* ------------------------- PRODUCTO ------------------------- */
+.product-section {
+  min-height: 700px;
+}
 .product-content {
   width: 1000px;
   height: 600px;
