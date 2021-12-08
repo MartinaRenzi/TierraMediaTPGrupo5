@@ -17,13 +17,13 @@
 				<img src="../torre/assets/img/Login.png" alt="Imagen login" />
 			</div>
 			<div class="login-container">
-			<!--<c:if test="${flash != null}">
+			<c:if test="${flash != null}">
 					<div class="alert alert-danger">
 						<p>
 							<c:out value="${flash}" />
 						</p>
 					</div>
-				</c:if>--> <!--Restaurar al valor inicial al actualizar la pagina-->
+				</c:if><!--Restaurar al valor inicial al actualizar la pagina-->
 				<div class="login-buttons-top">
 					<a class="button-left" href="#">Sign in</a> <a class="button-right"
 						href="#">Sign up</a>
