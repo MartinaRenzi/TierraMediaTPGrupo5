@@ -1,6 +1,6 @@
 package modelos.nullobjects;
 
-import modelos.nullobjects.NullUser;
+
 import modelos.Usuario;
 
 public class NullUser extends Usuario{
@@ -9,7 +9,7 @@ public class NullUser extends Usuario{
 	}
 	
 	public NullUser() {
-		super("", 0, 0, null, 0);
+		super("", 0.0, 0.0, null, 0);
 	}
 	
 	public boolean isNull() {

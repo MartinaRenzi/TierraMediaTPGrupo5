@@ -23,7 +23,7 @@
                   >
                 </li>
                 <li>
-                  <img src="/torre/assets/img/log-out.png" alt="log-out" /><a href="#"
+                  <img src="/torre/assets/img/log-out.png" alt="log-out" /><a href="/torre/logout"
                     >Cerrar sesion</a
                   >
                 </li>
